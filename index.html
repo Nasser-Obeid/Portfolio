@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nasser Obeid — AI &amp; Automation Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --yellow:#FFED29;
+  --black:#000000;
+  --white:#F8F8FF;
+  --font:"Playfair Display",Georgia,serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);color:var(--black);background:var(--white);line-height:1.6;overflow-x:hidden}
+
+/* ─── BANNER / NAV ─── */
+.banner{
+  position:sticky;top:0;z-index:100;
+  background:var(--black);color:var(--white);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;height:60px;
+  border-bottom:3px solid var(--yellow);
+}
+.banner__name{font-size:1.15rem;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.banner__nav{display:flex;gap:0;flex-wrap:wrap}
+.banner__nav a{
+  color:var(--white);text-decoration:none;font-size:.78rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:.55rem .9rem;transition:background .2s,color .2s;
+}
+.banner__nav a:hover,.banner__nav a:focus{background:var(--yellow);color:var(--black)}
+.banner__toggle{display:none;background:none;border:none;color:var(--white);font-size:1.6rem;cursor:pointer;font-family:var(--font)}
+
+/* ─── SECTIONS ─── */
+.section{padding:4rem 2.5rem}
+.section__title{
+  font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;
+  letter-spacing:.04em;margin-bottom:2rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.section__title::before{
+  content:"";display:block;width:28px;height:4px;
+  background:var(--yellow);flex-shrink:0;
+}
+
+/* ─── ABOUT ─── */
+.about{
+  background:var(--yellow);
+  display:flex;align-items:stretch;
+  padding:0;overflow:hidden;
+}
+.about__text{
+  flex:1 1 500px;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:2rem 3rem 2rem 4rem;
+}
+.about__caption{
+  font-size:.85rem;text-transform:uppercase;letter-spacing:.15em;
+  margin-bottom:.6rem;font-weight:800;
+}
+.about__heading{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.1;margin-bottom:1.2rem;margin-top:.6rem}
+.about__desc{font-size:1.05rem;line-height:1.75;max-width:720px;margin-bottom:1.8rem}
+.about__img-wrap{
+  flex:0 0 600px;
+  display:flex;align-items:flex-end;justify-content:center;
+  overflow:hidden;max-height:520px;
+}
+.about__img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  display:block;
+  filter:grayscale(30%) contrast(1.05);
+  mix-blend-mode:multiply;
+}
+
+/* shared CV button */
+.cv-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--black);color:var(--white);
+  text-decoration:none;padding:.7rem 1.5rem;
+  font-family:var(--font);font-size:.88rem;font-weight:600;
+  letter-spacing:.04em;border:none;cursor:pointer;
+  transition:background .2s,transform .15s;
+  align-self:flex-start;
+}
+.cv-btn:hover{background:#222;transform:translateY(-2px)}
+.cv-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ─── COLLABORATORS ─── */
+.collab{background:var(--black);padding:3.5rem 0 4rem;overflow:hidden}
+.collab .section__title{padding-left:2.5rem;color:var(--white)}
+.collab__track-wrapper{position:relative;width:100%;overflow:hidden}
+.collab__track{
+  display:flex;gap:4rem;align-items:center;
+  animation:scroll-logos 20s linear infinite;
+  width:max-content;padding:1rem 0;
+}
+.collab__track:hover{animation-play-state:paused}
+.collab__item{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  width:140px;height:140px;overflow:hidden;
+}
+.collab__item img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+@keyframes scroll-logos{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* ─── BACKGROUND ─── */
+.background{background:var(--white)}
+.background__text{
+  max-width:740px;font-size:1.1rem;line-height:1.85;
+  border-left:4px solid var(--yellow);padding-left:1.6rem;
+}
+
+/* ─── EXPERIENCE ─── */
+.exp{background:var(--black);color:var(--white)}
+.exp__layout{display:flex;align-items:stretch;gap:3rem}
+.exp__list{display:flex;flex-direction:column;gap:2.2rem;flex:1 1 0}
+.exp__img-wrap{
+  flex:0 0 500px;overflow:hidden;border-radius:6px;
+  display:flex;align-items:center;background:var(--black);
+}
+.exp__img-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px}
+.exp__card{border-left:3px solid var(--yellow);padding-left:1.6rem}
+.exp__role{font-size:1.15rem;font-weight:700}
+.exp__meta{font-size:.82rem;opacity:.7;margin-top:.15rem;letter-spacing:.03em;margin-bottom:.55rem}
+.exp__bullets{list-style:none;display:flex;flex-direction:column;gap:.3rem}
+.exp__bullets li{position:relative;padding-left:1rem;font-size:.92rem;line-height:1.55}
+.exp__bullets li::before{content:"—";position:absolute;left:0;color:var(--yellow);font-weight:700}
+
+/* ─── PROJECTS ─── */
+.projects{background:var(--white)}
+.proj__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.8rem}
+.proj__card{
+  border:2px solid var(--black);padding:1.6rem;
+  transition:transform .2s,box-shadow .2s;
+}
+.proj__card:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--yellow)}
+.proj__symbol{
+  font-size:1.6rem;margin-bottom:.6rem;
+  width:42px;height:42px;background:var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  border-radius:4px;font-weight:700;color:var(--black);
+}
+.proj__name{font-size:1.05rem;font-weight:700;margin-bottom:.6rem}
+.proj__details{list-style:none}
+.proj__details li{font-size:.88rem;line-height:1.55;padding-left:1rem;position:relative;margin-bottom:.3rem}
+.proj__details li::before{content:"›";position:absolute;left:0;color:var(--black);font-weight:700}
+
+/* ─── SKILLS ─── */
+.skills{background:var(--black);color:var(--white)}
+.skills__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.8rem}
+.skills__group-title{
+  font-size:.8rem;text-transform:uppercase;letter-spacing:.15em;
+  margin-bottom:.7rem;color:var(--yellow);font-weight:600;
+}
+.skills__tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.skills__tag{
+  background:transparent;border:1px solid rgba(248,248,255,.3);
+  color:var(--white);padding:.35rem .9rem;font-size:.82rem;
+  border-radius:2px;transition:background .2s,color .2s,border-color .2s;
+}
+.skills__tag:hover{background:var(--yellow);color:var(--black);border-color:var(--yellow)}
+
+/* ─── MORE ─── */
+.more{background:var(--white)}
+.more__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.more__block-title{
+  font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;
+  margin-bottom:1rem;font-weight:600;color:var(--black);
+  border-bottom:2px solid var(--yellow);padding-bottom:.3rem;display:inline-block;
+}
+.more__item{margin-bottom:.8rem}
+.more__item-main{font-weight:700;font-size:.95rem}
+.more__item-sub{font-size:.82rem;opacity:.65;margin-top:.1rem}
+
+/* ─── CONTACT ─── */
+.contact{background:var(--yellow);padding:4rem 2.5rem}
+.contact .section__title{justify-content:center}
+.contact .section__title::before{display:none}
+.contact__wrapper{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:900px;margin:0 auto}
+.contact__form{display:flex;flex-direction:column;gap:.8rem}
+.contact__form input,.contact__form textarea{
+  font-family:var(--font);font-size:.9rem;
+  padding:.7rem 1rem;border:2px solid var(--black);
+  background:var(--white);color:var(--black);outline:none;
+  transition:border-color .2s;
+}
+.contact__form input:focus,.contact__form textarea:focus{border-color:#555}
+.contact__form textarea{resize:vertical;min-height:120px}
+.contact__form button{
+  align-self:flex-start;
+  background:var(--black);color:var(--white);
+  font-family:var(--font);font-size:.9rem;font-weight:600;
+  padding:.75rem 2rem;border:none;cursor:pointer;
+  letter-spacing:.04em;transition:background .2s,transform .15s;
+}
+.contact__form button:hover{background:#222;transform:translateY(-2px)}
+.contact__form-msg{font-size:.85rem;margin-top:.2rem;font-weight:600}
+.contact__form-msg--ok{color:#1a6a1a}
+.contact__form-msg--err{color:#a00}
+
+.contact__info{display:flex;flex-direction:column;gap:1rem;justify-content:center}
+.contact__btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--black);color:var(--white);
+  text-decoration:none;padding:.75rem 1.6rem;
+  font-family:var(--font);font-size:.9rem;font-weight:600;
+  letter-spacing:.04em;border:none;cursor:pointer;
+  transition:background .2s,transform .15s;
+}
+.contact__btn:hover{background:#222;transform:translateY(-2px)}
+.contact__btn svg{width:18px;height:18px;fill:currentColor}
+
+/* ─── FOOTER ─── */
+.footer{background:var(--black);color:rgba(248,248,255,.4);text-align:center;padding:1.4rem;font-size:.75rem;letter-spacing:.06em}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .contact__wrapper{grid-template-columns:1fr}
+  .contact__info{align-items:flex-start}
+}
+@media(max-width:768px){
+  .banner{padding:0 1.2rem}
+  .banner__nav{
+    display:none;flex-direction:column;
+    position:absolute;top:60px;left:0;right:0;
+    background:var(--black);border-bottom:3px solid var(--yellow);
+  }
+  .banner__nav.open{display:flex}
+  .banner__nav a{padding:.8rem 1.4rem;border-bottom:1px solid rgba(255,255,255,.08)}
+  .banner__toggle{display:block}
+  .section{padding:3rem 1.4rem}
+  .about{flex-direction:column-reverse;min-height:auto}
+  .about__img-wrap{flex:0 0 auto;width:100%;max-height:420px}
+  .about__text{padding:2.5rem 1.4rem}
+  .collab .section__title{padding-left:1.4rem}
+  .exp__layout{flex-direction:column}
+  .exp__img-wrap{flex:0 0 auto;max-height:280px}
+  .more__grid{grid-template-columns:1fr}
+  .skills__grid{grid-template-columns:1fr 1fr}
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ════ BANNER ════ -->
+<header class="banner" role="banner">
+  <div class="banner__name">Nasser Obeid</div>
+  <button class="banner__toggle" aria-label="Toggle navigation">&#9776;</button>
+  <nav class="banner__nav" role="navigation" aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#collaborators">Collaborators</a>
+    <a href="#background">Background</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#more">More</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ════ ABOUT ════ -->
+<section id="about" class="about section">
+  <div class="about__text reveal">
+    <p class="about__caption">AI &amp; Automation Engineer</p>
+    <h1 class="about__heading">Nasser<br>Obeid</h1>
+    <p class="about__desc">AI and Automation specialist with 1.5+ years of hands-on experience in RPA, machine learning, and process optimization. Proven track record of reducing processing time by 15–40% and handling 50k+ daily records. Skilled in Python, UiPath, and MLOps pipelines.</p>
+    <a href="src/assets/NASSER_OBEID_CV_Updated.pdf" download class="cv-btn">
+      <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+      Download CV
+    </a>
+  </div>
+  <div class="about__img-wrap">
+    <img src="src/assets/Nasser_Obeid.png" alt="Nasser Obeid — professional portrait" class="about__img">
+  </div>
+</section>
+
+<!-- ════ COLLABORATORS ════ -->
+<section id="collaborators" class="collab section">
+  <h2 class="section__title">Collaborators</h2>
+  <div class="collab__track-wrapper">
+    <div class="collab__track" aria-label="Partner logos carousel">
+      <a href="https://www.futureskills.jo/" target="_blank" rel="noopener" class="collab__item"><img src="src/assets/future_skills_fund____logo.jpg" alt="Future Skills Fund logo" loading="lazy"></a>
+      <a href="https://istidamaconsulting.com/en/" target="_blank" rel="noopener" class="collab__item"><img src="src/assets/istidama_consulting_logo.jpg" alt="Istidama Consulting logo" loading="lazy"></a>
+      <a href="https://www.levelupeconomy.com/" target="_blank" rel="noopener" class="collab__item"><img src="src/assets/levelup_economy_logo.jpg" alt="LevelUp Economy logo" loading="lazy"></a>
+      <span class="collab__item"><img src="src/assets/darbtech.jpg" alt="Darbtech logo" loading="lazy"></span>
+      <!-- duplicate set for seamless loop -->
+      <a href="https://www.futureskills.jo/" target="_blank" rel="noopener" class="collab__item"><img src="src/assets/future_skills_fund____logo.jpg" alt="Future Skills Fund logo" loading="lazy"></a>
+      <a href="https://istidamaconsulting.com/en/" target="_blank" rel="noopener" class="collab__item"><img src="src/assets/istidama_consulting_logo.jpg" alt="Istidama Consulting logo" loading="lazy"></a>
+      <a href="https://www.levelupeconomy.com/" target="_blank" rel="noopener" class="collab__item"><img src="src/assets/levelup_economy_logo.jpg" alt="LevelUp Economy logo" loading="lazy"></a>
+      <span class="collab__item"><img src="src/assets/darbtech.jpg" alt="Darbtech logo" loading="lazy"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ BACKGROUND ════ -->
+<section id="background" class="section background">
+  <h2 class="section__title">Background</h2>
+  <div class="background__text reveal">
+    <p>With a foundation in Artificial Intelligence and Robotics from Al-Balqa Applied University and advanced analytics training through Correlation One, I specialize in bridging machine learning research with real-world automation. My work spans RPA development, intelligent data pipelines, and production-grade ML deployments — always focused on measurable efficiency gains and scalable architecture.</p>
+  </div>
+</section>
+
+<!-- ════ EXPERIENCE ════ -->
+<section id="experience" class="section exp">
+  <h2 class="section__title">Experience</h2>
+  <div class="exp__layout">
+  <div class="exp__list">
+
+    <article class="exp__card reveal">
+      <div class="exp__role">Python and Applied AI — Teaching Assistant</div>
+      <div class="exp__meta">Istidama Consulting &middot; Feb 2026 – Present &middot; Amman, Jordan</div>
+      <ul class="exp__bullets">
+        <li>Supported 50+ learners through applied AI coursework</li>
+        <li>Reduced at-risk dropout through proactive mentoring</li>
+        <li>Reinforced version control best practices across cohorts</li>
+      </ul>
+    </article>
+
+    <article class="exp__card reveal">
+      <div class="exp__role">Freelancer — ML &amp; Automation</div>
+      <div class="exp__meta">Fiverr &middot; Mar 2025 – Present &middot; Amman, Jordan</div>
+      <ul class="exp__bullets">
+        <li>Maintained a 4.9/5.0 client satisfaction rating</li>
+        <li>Reduced manual processing by 40–60% per engagement</li>
+        <li>Achieved 95%+ extraction accuracy on document pipelines</li>
+      </ul>
+    </article>
+
+    <article class="exp__card reveal">
+      <div class="exp__role">AI Developer Intern</div>
+      <div class="exp__meta">Takarbu TEL &middot; Jul 2024 – Sep 2024 &middot; Amman, Jordan</div>
+      <ul class="exp__bullets">
+        <li>Reduced data processing overhead by 15%</li>
+        <li>Achieved 98% data quality across pipelines</li>
+        <li>Cut onboarding time by 30% with automated workflows</li>
+      </ul>
+    </article>
+
+  </div>
+  <div class="exp__img-wrap reveal">
+    <img src="src/assets/test.png" alt="Yellow fingerprint on black background" loading="lazy">
+  </div>
+  </div>
+</section>
+
+<!-- ════ PROJECTS ════ -->
+<section id="projects" class="section projects">
+  <h2 class="section__title">Projects</h2>
+  <div class="proj__grid">
+
+    <article class="proj__card reveal">
+      <span class="proj__symbol" aria-hidden="true">&#x2B21;</span>
+      <h3 class="proj__name">Chatty</h3>
+      <ul class="proj__details">
+        <li>Django WebSocket real-time chat application</li>
+        <li>AES-256 end-to-end encryption</li>
+        <li>Containerized with Docker &amp; Redis</li>
+      </ul>
+    </article>
+
+    <article class="proj__card reveal">
+      <span class="proj__symbol" aria-hidden="true">&#x2B22;</span>
+      <h3 class="proj__name">MLOps Fruit Classifier</h3>
+      <ul class="proj__details">
+        <li>92% classification accuracy</li>
+        <li>Dockerized Flask API, &lt;200ms inference</li>
+        <li>Full CI/CD deployment pipeline</li>
+      </ul>
+    </article>
+
+    <article class="proj__card reveal">
+      <span class="proj__symbol" aria-hidden="true">&#x2B23;</span>
+      <h3 class="proj__name">Multi-Agent AI</h3>
+      <ul class="proj__details">
+        <li>Orchestrated 4 autonomous agents</li>
+        <li>REST API with Python sandbox execution</li>
+      </ul>
+    </article>
+
+    <article class="proj__card reveal">
+      <span class="proj__symbol" aria-hidden="true">&#x2B25;</span>
+      <h3 class="proj__name">Smart Lock</h3>
+      <ul class="proj__details">
+        <li>95% facial recognition accuracy</li>
+        <li>Sub-2-second unlock latency</li>
+      </ul>
+    </article>
+
+    <article class="proj__card reveal">
+      <span class="proj__symbol" aria-hidden="true">&#x2B26;</span>
+      <h3 class="proj__name">Job Scraper</h3>
+      <ul class="proj__details">
+        <li>Scrapes 1k+ daily job postings</li>
+        <li>50k cumulative records, 98% deduplication</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- ════ SKILLS ════ -->
+<section id="skills" class="section skills">
+  <h2 class="section__title">Skills</h2>
+  <div class="skills__grid">
+    <div class="reveal">
+      <h3 class="skills__group-title">RPA / Automation</h3>
+      <div class="skills__tags">
+        <span class="skills__tag">UiPath</span>
+        <span class="skills__tag">Process Mining</span>
+        <span class="skills__tag">Selenium</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="skills__group-title">Programming</h3>
+      <div class="skills__tags">
+        <span class="skills__tag">Python</span>
+        <span class="skills__tag">SQL</span>
+        <span class="skills__tag">C++</span>
+        <span class="skills__tag">HTML / CSS</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="skills__group-title">MLOps / DevOps</h3>
+      <div class="skills__tags">
+        <span class="skills__tag">Docker</span>
+        <span class="skills__tag">Git</span>
+        <span class="skills__tag">CI/CD</span>
+        <span class="skills__tag">Flask</span>
+        <span class="skills__tag">FastAPI</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="skills__group-title">AI / ML</h3>
+      <div class="skills__tags">
+        <span class="skills__tag">TensorFlow</span>
+        <span class="skills__tag">PyTorch</span>
+        <span class="skills__tag">Scikit-learn</span>
+        <span class="skills__tag">Pandas</span>
+        <span class="skills__tag">NumPy</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="skills__group-title">Data Tools</h3>
+      <div class="skills__tags">
+        <span class="skills__tag">Excel / VBA</span>
+        <span class="skills__tag">SQL Server</span>
+        <span class="skills__tag">PostgreSQL</span>
+        <span class="skills__tag">Web Scraping</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MORE ════ -->
+<section id="more" class="section more">
+  <h2 class="section__title">More</h2>
+  <div class="more__grid reveal">
+    <div>
+      <h3 class="more__block-title">Education</h3>
+      <div class="more__item">
+        <div class="more__item-main">B.Sc. Artificial Intelligence &amp; Robotics</div>
+        <div class="more__item-sub">Al-Balqa Applied University &middot; 2019 – 2025 &middot; As-Salt, Jordan</div>
+      </div>
+      <div class="more__item">
+        <div class="more__item-main">Advanced Data Analytics Training</div>
+        <div class="more__item-sub">Correlation One &middot; Oct 2024 – Mar 2025 &middot; Remote</div>
+      </div>
+    </div>
+    <div>
+      <h3 class="more__block-title">Certificates</h3>
+      <div class="more__item"><div class="more__item-main">UiPath RPA Developer Foundation</div></div>
+      <div class="more__item"><div class="more__item-main">Machine Learning</div></div>
+    </div>
+    <div>
+      <h3 class="more__block-title">Languages</h3>
+      <div class="more__item"><div class="more__item-main">Arabic — Fluent</div></div>
+      <div class="more__item"><div class="more__item-main">English — Fluent</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact" class="contact section">
+  <h2 class="section__title">Get in Touch</h2>
+  <div class="contact__wrapper">
+    <!-- Email form -->
+    <div class="contact__form" id="contactForm">
+      <input type="text" id="cfName" placeholder="Your Name" required aria-label="Your name">
+      <input type="email" id="cfEmail" placeholder="Your Email" required aria-label="Your email">
+      <input type="text" id="cfSubject" placeholder="Subject" aria-label="Subject">
+      <textarea id="cfMessage" placeholder="Your Message" required aria-label="Message"></textarea>
+      <button type="button" id="cfSend">Send Message</button>
+      <div id="cfStatus" class="contact__form-msg" aria-live="polite"></div>
+    </div>
+    <!-- Links column -->
+    <div class="contact__info">
+      <a href="mailto:nasserobeid8@gmail.com" class="contact__btn">
+        <svg viewBox="0 0 24 24"><path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5v12H4V6z"/></svg>
+        nasserobeid8@gmail.com
+      </a>
+      <a href="tel:+962790695430" class="contact__btn">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8a13.3 13.3 0 005.6 5.6l1.9-1.9a1 1 0 011-.2 11.4 11.4 0 003.6.6 1 1 0 011 1v3.5a1 1 0 01-1 1A17 17 0 013 4.5a1 1 0 011-1H7.5a1 1 0 011 1c0 1.3.2 2.5.6 3.6a1 1 0 01-.2 1L6.6 10.8z"/></svg>
+        +962 790 695 430
+      </a>
+      <a href="https://www.linkedin.com/in/nasser-obeid-aba373267/" target="_blank" rel="noopener" class="contact__btn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.83v2.19h.05A4.2 4.2 0 0115.7 7.7C20.17 7.7 21 10.67 21 14.56V24h-4v-8.35c0-2-.04-4.56-2.78-4.56-2.78 0-3.2 2.17-3.2 4.41V24H8V8z"/></svg>
+        LinkedIn
+      </a>
+      <a href="src/assets/NASSER_OBEID_CV_Updated.pdf" download class="contact__btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+        Download CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">&copy; 2026 Nasser Obeid. All rights reserved.</footer>
+
+<script>
+/* ── Mobile nav toggle ── */
+document.querySelector('.banner__toggle').addEventListener('click',function(){
+  document.querySelector('.banner__nav').classList.toggle('open');
+});
+document.querySelectorAll('.banner__nav a').forEach(function(a){
+  a.addEventListener('click',function(){document.querySelector('.banner__nav').classList.remove('open')});
+});
+
+/* ── Scroll reveal ── */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+    });
+  },{threshold:0.1});
+  els.forEach(function(el){obs.observe(el)});
+})();
+
+/* ── Contact form → mailto ── */
+document.getElementById('cfSend').addEventListener('click',function(){
+  var n=document.getElementById('cfName').value.trim();
+  var e=document.getElementById('cfEmail').value.trim();
+  var s=document.getElementById('cfSubject').value.trim();
+  var m=document.getElementById('cfMessage').value.trim();
+  var st=document.getElementById('cfStatus');
+  if(!n||!e||!m){
+    st.textContent='Please fill in all required fields.';
+    st.className='contact__form-msg contact__form-msg--err';return;
+  }
+  var body='Name: '+n+'\nEmail: '+e+'\n\n'+m;
+  window.location.href='mailto:nasserobeid8@gmail.com?subject='+encodeURIComponent(s||'Portfolio Contact')+'&body='+encodeURIComponent(body);
+  st.textContent='Opening your email client\u2026';
+  st.className='contact__form-msg contact__form-msg--ok';
+});
+</script>
+</body>
+</html>
