@@ -4,7 +4,7 @@ Personal portfolio website for **Nasser Obeid**, an AI & Automation Engineer bas
 
 ## Live Site
 
-[https://your-username.github.io/portfolio/](https://your-username.github.io/portfolio/)
+[https://nasser-obeid.github.io/Portfolio/](https://nasser-obeid.github.io/Portfolio/)
 
 ## Overview
 
@@ -48,15 +48,15 @@ Hosted via **GitHub Pages**:
 ```
 ├── index.html
 ├── README.md
-├── experience-bg.avif
-├── Nasser_Obeid.png
-├── future_skills_fund____logo.jpg
-├── istidama_consulting_logo.jpg
-├── levelup_economy_logo.jpg
-├── darbtech.jpg
 └── src/
     └── assets/
         └── NASSER_OBEID_CV_Updated.pdf
+        ├── experience-bg.avif
+        ├── Nasser_Obeid.png
+        ├── future_skills_fund____logo.jpg
+        ├── istidama_consulting_logo.jpg
+        ├── levelup_economy_logo.jpg
+        ├── darbtech.jpg
 ```
 
 ## Contact
