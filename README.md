@@ -50,7 +50,7 @@ Hosted via **GitHub Pages**:
 ├── README.md
 └── src/
     └── assets/
-        └── NASSER_OBEID_CV_Updated.pdf
+        └── Nasser_Obeid_CV.pdf
         ├── experience-bg.avif
         ├── Nasser_Obeid.png
         ├── future_skills_fund____logo.jpg
